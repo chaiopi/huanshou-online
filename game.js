@@ -20,7 +20,9 @@ const player = {
     size: 40,
     speed: 5,
     hp: 100,
-    maxHp: 100    
+    maxHp: 100,
+    atk: 10,
+    exp: 0
 };
 
 
@@ -37,6 +39,14 @@ const keys = {};
 document.addEventListener("keydown", e => {
     keys[e.key.toLowerCase()] = true;
 });
+document.addEventListener("keydown", e => {
+
+    if(e.code === "Space"){
+        attack();
+    }
+
+});
+
 
 document.addEventListener("keyup", e => {
     keys[e.key.toLowerCase()] = false;
@@ -145,10 +155,46 @@ function update(){
         );
 
     });
+    
+    // 怪物死亡判定
+for(let i = slimes.length - 1; i >= 0; i--){
+
+    if(slimes[i].hp <= 0){
+
+        player.exp += 10;
+
+        slimes.splice(i,1);
+
+    }
 
 }
 
+}
+
+
 // 畫面
+
+function attack(){
+
+    slimes.forEach(slime => {
+
+        const dx = slime.x - player.x;
+        const dy = slime.y - player.y;
+
+        const distance = Math.sqrt(
+            dx * dx + dy * dy
+        );
+
+        if(distance < 120){
+
+            slime.hp -= player.atk;
+
+        }
+
+    });
+
+}
+
 function draw(){
 
     ctx.clearRect(
@@ -230,6 +276,11 @@ ctx.drawImage(
         20,
         30
     );
+    ctx.fillText(
+    `EXP: ${player.exp}`,
+    20,
+    60
+);
 
 }
 
