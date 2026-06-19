@@ -192,13 +192,49 @@ function attack(){
 
     slimes.forEach(slime => {
 
+         // 玩家距離
         const dx = slime.x - player.x;
         const dy = slime.y - player.y;
 
         const distance = Math.sqrt(
             dx * dx + dy * dy
         );
+ // 追擊玩家
+    if(distance < 250){
 
+        slime.x += dx / distance * 2;
+        slime.y += dy / distance * 2;
+
+    }else{
+
+        // 原本閒晃
+        slime.x += slime.moveX * slime.speed;
+        slime.y += slime.moveY * slime.speed;
+
+        slime.timer++;
+
+        if(slime.timer > 120){
+
+            slime.moveX = Math.random() - 0.5;
+            slime.moveY = Math.random() - 0.5;
+
+            slime.timer = 0;
+        }
+
+    }
+
+    slime.x = Math.max(
+        0,
+        Math.min(world.width - slime.size, slime.x)
+    );
+
+    slime.y = Math.max(
+        0,
+        Math.min(world.height - slime.size, slime.y)
+    );
+
+});
+        
         if(distance < 200){
 
             console.log("攻擊");
