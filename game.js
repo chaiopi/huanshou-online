@@ -44,6 +44,7 @@ document.addEventListener("keydown", e => {
     if(e.code === "Space"){
         attack();
     }
+    
 
 });
 
@@ -198,9 +199,13 @@ function attack(){
             dx * dx + dy * dy
         );
 
-        if(distance < 120){
+        if(distance < 200){
 
+            console.log("攻擊");
+
+            
             slime.hp -= player.atk;
+            
             damageTexts.push({
         x: slime.x,
         y: slime.y,
