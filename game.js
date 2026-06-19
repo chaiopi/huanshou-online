@@ -11,6 +11,13 @@ canvas.height = window.innerHeight;
 const world = {
     width: 2000,
     height: 2000
+const player = {
+    x: 1000,
+    y: 1000,
+    size: 64,
+    speed: 5,
+    hp: 100,
+    maxHp: 100    
 };
 
 
@@ -202,18 +209,15 @@ function draw(){
 
     });
 
-    // 玩家
-    ctx.fillStyle = "dodgerblue";
     
-    ctx.beginPath();
-ctx.arc(
-    player.x - camera.x + player.size/2,
-    player.y - camera.y + player.size/2,
-    player.size/2,
-    0,
-    Math.PI * 2
+    // 玩家角色
+ctx.drawImage(
+    playerImg,
+    player.x - camera.x,
+    player.y - camera.y,
+    player.size,
+    player.size
 );
-ctx.fill();
     
 
     // 玩家血量UI
