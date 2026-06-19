@@ -11,6 +11,9 @@ canvas.height = window.innerHeight;
 const world = {
     width: 2000,
     height: 2000
+};
+
+// 玩家
 const player = {
     x: 1000,
     y: 1000,
