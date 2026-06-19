@@ -212,7 +212,6 @@ function draw(){
 
     });
 
-    
     // 玩家角色
 ctx.drawImage(
     playerImg,
@@ -222,7 +221,6 @@ ctx.drawImage(
     player.size
 );
     
-
     // 玩家血量UI
     ctx.fillStyle = "white";
     ctx.font = "20px Arial";
