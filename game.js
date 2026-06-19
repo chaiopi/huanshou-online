@@ -38,36 +38,43 @@ document.addEventListener("keyup", e => {
 });
 
 // 史萊姆
-const slimes = [];
-
-for(let i = 0; i < 3; i++){
+const slimes = [
+    {
+        x: 1100,
+        y: 1000,
+        size: 35,
+        hp: 30,
+        maxHp: 30,
+        speed: 1,
+        moveX: 0,
+        moveY: 0,
+        timer: 0
+    },
 
     {
-    x: 1100,
-    y: 1000,
-    size: 35,
-    hp: 30,
-    maxHp: 30,
-    speed: 1,
-    moveX: 0,
-    moveY: 0,
-    timer: 0
-},
+        x: 900,
+        y: 1000,
+        size: 35,
+        hp: 30,
+        maxHp: 30,
+        speed: 1,
+        moveX: 0,
+        moveY: 0,
+        timer: 0
+    },
 
-{
-    x: 900,
-    y: 1000,
-    size: 35,
-    hp: 30,
-    maxHp: 30,
-    speed: 1,
-    moveX: 0,
-    moveY: 0,
-    timer: 0
-}
-    });
-
-}
+    {
+        x: 1000,
+        y: 1150,
+        size: 35,
+        hp: 30,
+        maxHp: 30,
+        speed: 1,
+        moveX: 0,
+        moveY: 0,
+        timer: 0
+    }
+];
 
 console.log(slimes);
 
