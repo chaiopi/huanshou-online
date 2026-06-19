@@ -42,21 +42,29 @@ const slimes = [];
 
 for(let i = 0; i < 3; i++){
 
-    slimes.push({
-        x: Math.random() * world.width,
-        y: Math.random() * world.height,
+    {
+    x: 1100,
+    y: 1000,
+    size: 35,
+    hp: 30,
+    maxHp: 30,
+    speed: 1,
+    moveX: 0,
+    moveY: 0,
+    timer: 0
+},
 
-        size: 35,
-
-        hp: 30,
-        maxHp: 30,
-
-        speed: 1,
-
-        moveX: (Math.random() - 0.5),
-        moveY: (Math.random() - 0.5),
-
-        timer: 0
+{
+    x: 900,
+    y: 1000,
+    size: 35,
+    hp: 30,
+    maxHp: 30,
+    speed: 1,
+    moveX: 0,
+    moveY: 0,
+    timer: 0
+}
     });
 
 }
