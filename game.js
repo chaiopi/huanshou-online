@@ -1,5 +1,9 @@
 const canvas = document.getElementById("gameCanvas");
 const ctx = canvas.getContext("2d");
+const playerImg = new Image();
+playerImg.src = "assets/1.1idle.gif";
+const canvas = document.getElementById("gameCanvas");
+const ctx = canvas.getContext("2d");
 
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
@@ -10,18 +14,14 @@ const world = {
     height: 2000
 };
 
-// 玩家
-ctx.fillStyle = "dodgerblue";
-
-ctx.beginPath();
-ctx.arc(
-    player.x - camera.x + player.size / 2,
-    player.y - camera.y + player.size / 2,
-    player.size / 2,
-    0,
-    Math.PI * 2
+// 玩家角色
+ctx.drawImage(
+    playerImg,
+    player.x - camera.x,
+    player.y - camera.y,
+    64,
+    64
 );
-ctx.fill();
 
 // 鏡頭
 const camera = {
