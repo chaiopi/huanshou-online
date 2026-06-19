@@ -53,6 +53,7 @@ document.addEventListener("keyup", e => {
 });
 
 // 史萊姆
+const damageTexts = [];
 const slimes = [
     {
         x: 1100,
@@ -102,6 +103,18 @@ function update(){
     if(keys["s"]) player.y += player.speed;
     if(keys["a"]) player.x -= player.speed;
     if(keys["d"]) player.x += player.speed;
+    damageTexts.forEach(text => {
+    text.y -= 1;
+    text.life--;
+});
+
+for(let i = damageTexts.length - 1; i >= 0; i--){
+
+    if(damageTexts[i].life <= 0){
+        damageTexts.splice(i,1);
+    }
+
+}
 
     // 地圖邊界
     player.x = Math.max(
@@ -188,6 +201,12 @@ function attack(){
         if(distance < 120){
 
             slime.hp -= player.atk;
+            damageTexts.push({
+        x: slime.x,
+        y: slime.y,
+        text: "-" + player.atk,
+        life: 60
+    });
 
         }
 
@@ -258,6 +277,21 @@ function draw(){
 
     });
 
+    // 傷害飄字
+damageTexts.forEach(text => {
+
+    ctx.fillStyle = "yellow";
+    ctx.font = "24px Arial";
+
+    ctx.fillText(
+        text.text,
+        text.x - camera.x,
+        text.y - camera.y
+    );
+
+});
+
+    
     // 玩家角色
 ctx.drawImage(
     playerImg,
