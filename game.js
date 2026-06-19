@@ -17,7 +17,7 @@ const world = {
 const player = {
     x: 1000,
     y: 1000,
-    size: 64,
+    size: 48,
     speed: 5,
     hp: 100,
     maxHp: 100    
