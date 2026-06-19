@@ -11,14 +11,17 @@ const world = {
 };
 
 // 玩家
-const player = {
-    x: 1000,
-    y: 1000,
-    size: 40,
-    speed: 5,
-    hp: 100,
-    maxHp: 100
-};
+ctx.fillStyle = "dodgerblue";
+
+ctx.beginPath();
+ctx.arc(
+    player.x - camera.x + player.size / 2,
+    player.y - camera.y + player.size / 2,
+    player.size / 2,
+    0,
+    Math.PI * 2
+);
+ctx.fill();
 
 // 鏡頭
 const camera = {
