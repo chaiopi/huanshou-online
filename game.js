@@ -208,13 +208,18 @@ function draw(){
     });
 
     // 玩家
-    ctx.fillStyle = "blue";
-    ctx.fillRect(
-        player.x - camera.x,
-        player.y - camera.y,
-        player.size,
-        player.size
-    );
+    ctx.fillStyle = "dodgerblue";
+    
+    ctx.beginPath();
+ctx.arc(
+    player.x - camera.x + player.size/2,
+    player.y - camera.y + player.size/2,
+    player.size/2,
+    0,
+    Math.PI * 2
+);
+ctx.fill();
+    
 
     // 玩家血量UI
     ctx.fillStyle = "white";
