@@ -2,8 +2,7 @@ const canvas = document.getElementById("gameCanvas");
 const ctx = canvas.getContext("2d");
 const playerImg = new Image();
 playerImg.src = "assets/1.1idle.gif";
-const canvas = document.getElementById("gameCanvas");
-const ctx = canvas.getContext("2d");
+
 
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
@@ -14,14 +13,7 @@ const world = {
     height: 2000
 };
 
-// 玩家角色
-ctx.drawImage(
-    playerImg,
-    player.x - camera.x,
-    player.y - camera.y,
-    64,
-    64
-);
+
 
 // 鏡頭
 const camera = {
